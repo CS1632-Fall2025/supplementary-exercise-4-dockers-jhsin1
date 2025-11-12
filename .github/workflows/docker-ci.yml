@@ -40,5 +40,8 @@ jobs:
       - name: Launch Web Service
         run: docker compose up -d
 
+      - name: Check Web Server Availability
+        run: bash wait-for-test_dockerized_webserver.sh
+
       - name: Run Selenium Tests
         run: cd selenium && mvn test
